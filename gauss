@@ -1,0 +1,18 @@
+p = [];
+for x = (2^30+1):4:(2^30+10000)
+    if isprime(x)
+        p=[p,x];
+    end
+end
+x=[] ; y = [];
+for q = p 
+    for xx = randperm(q);
+        if mod(sqrt(q^2-xx^2),1)==0
+            x= [x,xx];
+            y= [y, sqrt(q^2-xx^2)];
+            break;
+        end
+    end
+end
+x.^2+y.^2==p.^2
+[x',y']
